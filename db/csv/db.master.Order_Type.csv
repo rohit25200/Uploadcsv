@@ -1,0 +1,12 @@
+S_NO;OMS_Order_Type;Order_Type_Priority
+1;SAM;P3
+2;GIA;P3
+3;CCO;P2
+4;DMR;P2
+5;AHO;P3
+6;PMO;P2
+7;RTO;P4
+8;SPO;P1
+9;LTA;P4
+10;LRO;P4
+11;DPO;P5

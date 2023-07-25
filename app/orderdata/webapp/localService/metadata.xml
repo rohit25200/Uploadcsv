@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="Order_srv" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Van" EntityType="Order_srv.Van"/>
+                <EntitySet Name="Order" EntityType="Order_srv.Order">
+                    <NavigationPropertyBinding Path="final" Target="Final_Allocation"/>
+                </EntitySet>
+                <EntitySet Name="MaterialID" EntityType="Order_srv.MaterialID"/>
+                <EntitySet Name="CustomerID" EntityType="Order_srv.CustomerID"/>
+                <EntitySet Name="Final_Allocation" EntityType="Order_srv.Final_Allocation"/>
+                <EntitySet Name="Orde01" EntityType="Order_srv.Orde01"/>
+            </EntityContainer>
+            <EntityType Name="Van">
+                <Key>
+                    <PropertyRef Name="S_NO"/>
+                </Key>
+                <Property Name="S_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Van_Number" Type="Edm.String"/>
+                <Property Name="Route_Number" Type="Edm.String"/>
+                <Property Name="Area_Code" Type="Edm.String"/>
+                <Property Name="RPF" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Order">
+                <Key>
+                    <PropertyRef Name="S_NO"/>
+                </Key>
+                <Property Name="S_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Order_Date" Type="Edm.Date"/>
+                <Property Name="Order_ID" Type="Edm.String"/>
+                <Property Name="Requested_Delivery_Date" Type="Edm.Date"/>
+                <Property Name="Customer_ID" Type="Edm.String"/>
+                <Property Name="Item_ID" Type="Edm.String"/>
+                <Property Name="Material_ID" Type="Edm.String"/>
+                <Property Name="Plant" Type="Edm.String"/>
+                <Property Name="Route_Number" Type="Edm.String"/>
+                <Property Name="Request_Quantity" Type="Edm.String"/>
+                <NavigationProperty Name="final" Type="Order_srv.Final_Allocation">
+                    <ReferentialConstraint Property="S_NO" ReferencedProperty="S_NO"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="MaterialID">
+                <Key>
+                    <PropertyRef Name="S_NO"/>
+                </Key>
+                <Property Name="S_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Material_ID" Type="Edm.String"/>
+                <Property Name="Material_Name" Type="Edm.String"/>
+                <Property Name="Plant" Type="Edm.String"/>
+                <Property Name="Pick_To_0" Type="Edm.String"/>
+                <Property Name="Product_Hierarchy" Type="Edm.String"/>
+                <Property Name="PG0" Type="Edm.String"/>
+                <Property Name="PG1" Type="Edm.String"/>
+                <Property Name="PG2" Type="Edm.String"/>
+                <Property Name="PG3" Type="Edm.String"/>
+                <Property Name="Channel" Type="Edm.String"/>
+                <Property Name="Sub_Channel" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="CustomerID">
+                <Key>
+                    <PropertyRef Name="S_NO"/>
+                </Key>
+                <Property Name="S_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Customer_ID" Type="Edm.String"/>
+                <Property Name="Customer_Name" Type="Edm.String"/>
+                <Property Name="Customer_Address" Type="Edm.String"/>
+                <Property Name="Plant" Type="Edm.String"/>
+                <Property Name="Customer_Group_Key" Type="Edm.String"/>
+                <Property Name="CG0" Type="Edm.String"/>
+                <Property Name="CG1" Type="Edm.String"/>
+                <Property Name="CG2" Type="Edm.String"/>
+                <Property Name="CG3" Type="Edm.String"/>
+                <Property Name="Channel" Type="Edm.String"/>
+                <Property Name="Sub_Channel" Type="Edm.String"/>
+                <Property Name="National_Customer" Type="Edm.String"/>
+                <Property Name="Aged_Horeca_Customer" Type="Edm.String"/>
+                <Property Name="Van_As_Customer" Type="Edm.String"/>
+                <Property Name="Material_Wastage" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Final_Allocation">
+                <Key>
+                    <PropertyRef Name="S_NO"/>
+                </Key>
+                <Property Name="S_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Order_Date" Type="Edm.Date"/>
+                <Property Name="Order_ID" Type="Edm.String"/>
+                <Property Name="Requested_Delivery_Date" Type="Edm.String"/>
+                <Property Name="Customer" Type="Edm.String"/>
+                <Property Name="Item_ID" Type="Edm.String"/>
+                <Property Name="Material" Type="Edm.String"/>
+                <Property Name="Plant" Type="Edm.String"/>
+                <Property Name="Route_Number" Type="Edm.String"/>
+                <Property Name="requested_Qty" Type="Edm.String"/>
+                <Property Name="Priority" Type="Edm.String"/>
+                <Property Name="Allocation_Priority" Type="Edm.String"/>
+                <Property Name="Excess_Push_Yes_or_No" Type="Edm.String"/>
+                <Property Name="Final_Priority" Type="Edm.String"/>
+                <Property Name="allocated_VAN_stock" Type="Edm.String"/>
+                <Property Name="RPF" Type="Edm.String"/>
+                <Property Name="Area_code" Type="Edm.String"/>
+                <Property Name="Allocate_Residual_To_Route" Type="Edm.String"/>
+                <Property Name="Required_Qty" Type="Edm.String"/>
+                <Property Name="Allocated_Qty" Type="Edm.String"/>
+                <Property Name="Stage_1_alloc" Type="Edm.String"/>
+                <Property Name="Stage_2_alloc" Type="Edm.String"/>
+                <Property Name="Depot_Level_Residual" Type="Edm.String"/>
+                <Property Name="Allocation_Qty_With_Excess" Type="Edm.String"/>
+                <Property Name="Route_Level_Rounding" Type="Edm.String"/>
+                <Property Name="RI_Qty" Type="Edm.String"/>
+                <Property Name="Final_Allocation_Qty" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Orde01">
+                <Property Name="Order_Date" Type="Edm.Date"/>
+                <Property Name="Order_ID" Type="Edm.String"/>
+                <Property Name="Customer_ID" Type="Edm.String"/>
+                <Property Name="Item_ID" Type="Edm.String"/>
+                <Property Name="Material_ID" Type="Edm.String"/>
+                <Property Name="Request_Quantity" Type="Edm.String"/>
+                <Property Name="allocated_VAN_stock" Type="Edm.String"/>
+                <Property Name="Allocated_Qty" Type="Edm.String"/>
+                <Property Name="Required_Qty" Type="Edm.String"/>
+                <Property Name="RI_Qty" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="Order_srv.Van/S_NO">
+                <Annotation Term="Common.Label" String="S_NO"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Van/Van_Number">
+                <Annotation Term="Common.Label" String=" Van_Number"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Van/Route_Number">
+                <Annotation Term="Common.Label" String="Route_Number"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Van/Area_Code">
+                <Annotation Term="Common.Label" String="Area_Code"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Van/RPF">
+                <Annotation Term="Common.Label" String="RPF"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/S_NO">
+                <Annotation Term="Common.Label" String="S_N0"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Order_Date">
+                <Annotation Term="Common.Label" String="Order_Date"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Order_ID">
+                <Annotation Term="Common.Label" String="OrderID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Requested_Delivery_Date">
+                <Annotation Term="Common.Label" String="Requested_Delivery_Date"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Customer_ID">
+                <Annotation Term="Common.Label" String="Customer_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Item_ID">
+                <Annotation Term="Common.Label" String=" Item_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Material_ID">
+                <Annotation Term="Common.Label" String="Material ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Plant">
+                <Annotation Term="Common.Label" String="Plant"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Route_Number">
+                <Annotation Term="Common.Label" String="Route_Number"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Order/Request_Quantity">
+                <Annotation Term="Common.Label" String="Requested_Qty"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/S_NO">
+                <Annotation Term="Common.Label" String="S_NO"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Material_ID">
+                <Annotation Term="Common.Label" String=" Material_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Material_Name">
+                <Annotation Term="Common.Label" String="  Material_Name"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Plant">
+                <Annotation Term="Common.Label" String="Plant"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Pick_To_0">
+                <Annotation Term="Common.Label" String="Pick_To_0"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Product_Hierarchy">
+                <Annotation Term="Common.Label" String="Product_Hierarchy"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/PG0">
+                <Annotation Term="Common.Label" String=" PG0"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/PG1">
+                <Annotation Term="Common.Label" String=" PG1"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/PG2">
+                <Annotation Term="Common.Label" String=" PG2"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/PG3">
+                <Annotation Term="Common.Label" String=" PG3"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Channel">
+                <Annotation Term="Common.Label" String="Channel"/>
+            </Annotations>
+            <Annotations Target="Order_srv.MaterialID/Sub_Channel">
+                <Annotation Term="Common.Label" String="Sub_Channel"/>
+            </Annotations>
+            <Annotations Target="Order_srv.CustomerID/S_NO">
+                <Annotation Term="Common.Label" String="S_NO"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/S_NO">
+                <Annotation Term="Common.Label" String="S_N0"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Order_Date">
+                <Annotation Term="Common.Label" String="Order_Date"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Order_ID">
+                <Annotation Term="Common.Label" String="Order_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Requested_Delivery_Date">
+                <Annotation Term="Common.Label" String="Requested_Delivery_Date"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Customer">
+                <Annotation Term="Common.Label" String="Customer "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Item_ID">
+                <Annotation Term="Common.Label" String="Item_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Material">
+                <Annotation Term="Common.Label" String="Material"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Plant">
+                <Annotation Term="Common.Label" String="Plant"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Route_Number">
+                <Annotation Term="Common.Label" String="Route_Number"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/requested_Qty">
+                <Annotation Term="Common.Label" String="Requested_Qty "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Priority">
+                <Annotation Term="Common.Label" String="Priority "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Allocation_Priority">
+                <Annotation Term="Common.Label" String="Allocation_Priority"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Excess_Push_Yes_or_No">
+                <Annotation Term="Common.Label" String="Excess_Push_Yes_or_No"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Final_Priority">
+                <Annotation Term="Common.Label" String="Final_Priority "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/allocated_VAN_stock">
+                <Annotation Term="Common.Label" String="allocated_VAN_stock "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/RPF">
+                <Annotation Term="Common.Label" String="RPF"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Area_code">
+                <Annotation Term="Common.Label" String="Area_Code"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Allocate_Residual_To_Route">
+                <Annotation Term="Common.Label" String=" Allocate_Residual_To_Route "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Required_Qty">
+                <Annotation Term="Common.Label" String=" Required_Qty"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Allocated_Qty">
+                <Annotation Term="Common.Label" String="Allocated_Qty "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Stage_1_alloc">
+                <Annotation Term="Common.Label" String=" Stage_1_alloc"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Stage_2_alloc">
+                <Annotation Term="Common.Label" String="Stage_2_alloc"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Depot_Level_Residual">
+                <Annotation Term="Common.Label" String="Depot_Level_Residual "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Allocation_Qty_With_Excess">
+                <Annotation Term="Common.Label" String="Allocation_Qty_With_Excess "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Route_Level_Rounding">
+                <Annotation Term="Common.Label" String="Route_Level_Rounding"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/RI_Qty">
+                <Annotation Term="Common.Label" String=" RI_Qty "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Final_Allocation/Final_Allocation_Qty">
+                <Annotation Term="Common.Label" String="Final_Allocation_Qty "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Order_Date</PropertyPath>
+                        <PropertyPath>Material_ID</PropertyPath>
+                        <PropertyPath>Customer_ID</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Order_Date"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Order_ID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer_ID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Item_ID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Material_ID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Request_Quantity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="allocated_VAN_stock"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Required_Qty"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Allocated_Qty"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="RI_Qty"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String=""/>
+                        <PropertyValue Property="TypeNamePlural" String=""/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Label" String="Material_ID"/>
+                                <PropertyValue Property="Value" Path="Material_ID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Order_srv.EntityContainer/Orde01">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record Type="Capabilities.FilterRestrictionsType">
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record Type="Capabilities.FilterExpressionRestrictionType">
+                                    <PropertyValue Property="Property" PropertyPath="Order_Date"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Order_Date">
+                <Annotation Term="Common.Label" String="Order_Date"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Order_ID">
+                <Annotation Term="Common.Label" String="OrderID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Customer_ID">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="CustomerID"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Customer_ID"/>
+                                    <PropertyValue Property="ValueListProperty" String="Customer_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.Label" String="Customer_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Item_ID">
+                <Annotation Term="Common.Label" String=" Item_ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Material_ID">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="MaterialID"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material_ID"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material_ID"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material_Name"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.Label" String="Material ID"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Request_Quantity">
+                <Annotation Term="Common.Label" String="Requested_Qty"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/allocated_VAN_stock">
+                <Annotation Term="Common.Label" String="allocated_VAN_stock "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Allocated_Qty">
+                <Annotation Term="Common.Label" String="Allocated_Qty "/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/Required_Qty">
+                <Annotation Term="Common.Label" String=" Required_Qty"/>
+            </Annotations>
+            <Annotations Target="Order_srv.Orde01/RI_Qty">
+                <Annotation Term="Common.Label" String=" RI_Qty "/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

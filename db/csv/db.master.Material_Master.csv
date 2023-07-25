@@ -1,0 +1,8 @@
+S_NO;Material_ID;Material_Name;Plant;Pick_To_0;Product_Hierarchy;PG0;PG1;PG2;PG3;Channel;Sub_Channel
+1;318;Milk;1001;Yes;fresh;diary;;;;;
+2;319;Bread;1001;Yes;fresh;bakery;;;;;
+3;331;Dairy Milk;1001;Yes;fresh;chocolate;;;;;
+4;341;Potato chips;1001;No;longlife;chips;;;;;
+5;342;Peanutbutter;1001;No;longlife;butter;;;;;
+6;401;Egg;1001;Yes;poultry;polutry_fresh;;;;;
+7;402;Frozen Fish;1001;No;poultry;poultry_longlife;;;;;;

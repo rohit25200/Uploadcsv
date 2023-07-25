@@ -1,0 +1,18 @@
+S_NO;Customer_ID;Customer_Name;Customer_Address;Plant;Customer_Group_Key;CG0;CG1;CG2;CG3;Channel;Sub_Channel;National_Customer;Aged_Horeca_Customer;Van_As_Customer;Material_Wastage
+1;Customer1;Vijay;Hi-Tech City,Hyderabad;1001;FK;AO;P0;ZKA;ZST;;;No;No;Yes;1%
+2;Customer2;Arun;Jubilee Hills,Hyderabad;1001;FN;GH;P1;ZKA;ZSR;;;No;No;Yes;1.3%
+3;Customer3;Surya;Banjara Hills,Hyderabad;1001;FN;GH;P1;ZKA;ZSR;;;No;No;Yes;1.2%
+4;Customer4;Arjun;Charminar,Hyderabad;1001;EC;AO;P1;ZKA;ZSR;;;No;No;Yes;1.3%
+5;Customer5;Vikram;L B Nagar,Hyderabad;1001;MG;AO;P1;ZKA;ZSR;;;No;No;Yes;0.7%
+6;Customer6;Roshan;Nehru Nagar,Hyderabad;1001;WH;GH;P1;ZKA;ZSR;;;No;No;Yes;0.5%
+7;Customer7;Dhanush;Gachibaowli,Hyderabad;1001;MG;GH;P1;ZKA;ZST;;;No;No;Yes;0.8%
+8;Customer8;Ajith;Habsiguda,Hyderabad;1001;WH;GH;P1;ZKA;ZST;;;No;No;Yes;1.0%
+9;Customer9;Manoj;Kukatpally,Hyderabad;1001;MN;AO;P1;ZKA;ZSR;;;No;No;Yes;0.6%
+10;Customer10;Rahul;Mallapur,Hyderabad;1001;FK;AO;P0;ZKA;ZSR;;;No;No;Yes;1.0%
+11;Customer11;Ajay;Mallapur,Hyderabad;1001;FN;GH;P0;ZKA;ZSR;;;No;No;Yes;1.0%
+12;Customer12;Ganesh;Kukatpally,Hyderabad;1001;MN;AO;P1;ZKA;ZST;;;No;No;Yes;1.2%
+13;Customer13;Jeeva;Gachibaowli,Hyderabad;1001;EC;AO;P1;ZKA;ZSR;;;No;No;Yes;1.3%
+14;Customer14;Kamal;Mallapur,Hyderabad;1001;TT;AO;P1;ZKA;ZSR;;;No;No;Yes;1.1%
+15;Customer15;Suresh;Mallapur,Hyderabad;1001;WH;GH;P1;ZKA;ZSR;;;No;No;Yes;1.4%
+16;Customer16;Rohit;Habsiguda,Hyderabad;1001;EC;SPO;P1;ZKA;ZSR;;;No;No;Yes;1.2%
+17;Customer17;Mohan;Mallapur,Hyderabad;1001;EC;SP1;P1;ZKA;ZST;;;No;No;Yes;1.3%

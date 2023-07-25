@@ -1,0 +1,10 @@
+PUT   http://localhost:4004/order-srv/Order
+
+Content-Type: application/json
+
+{
+      "S_NO": 800
+      
+    }
+###
+GET   http://localhost:4004/order-srv/Order/1/Order_srv.HelloWorld 

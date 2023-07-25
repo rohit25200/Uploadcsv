@@ -1,0 +1,5 @@
+S_NO;Plant;Area_Code;Material_ID;Contribution_Percentage
+1;1001;Area01;401;60
+2;1001;Area02;401;40
+3;1001;Area01;402;80
+4;1001;Area02;402;20

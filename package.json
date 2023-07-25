@@ -1,0 +1,42 @@
+{
+  "name": "sample01",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^6",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "^1.108.4",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds run --port 4002",
+    "watch-orderdata": "cds watch --open orderdata/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-finalorder": "cds watch --open finalorder/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-loadexcel": "cds watch --open loadexcel/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-actionbutton": "cds watch --open actionbutton/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db.sqlite"
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app/orderdata",
+    "app/project1",
+    "app/finalorder",
+    "app/loadexcel",
+    "app/actionbutton"
+  ]
+}

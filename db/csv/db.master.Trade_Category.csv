@@ -1,0 +1,10 @@
+S_NO;Customer_Group_Key;Trade_Category;Priority_In_Shortage;Priority_Excess
+1;TP;Top priority;0;YES
+2;FK;Foodservices;1;NO
+3;FN;Foodservices;2;NO
+4;MG;Modern Trade;3;NO
+5;MN;Modern Trade;4;YES
+6;EC;Ecommerce;5;YES
+7;TT;Traditional Trad;6;YES
+8;FO;Foodservices Others;7;NO
+9;WH;Wholesale;8;YES
